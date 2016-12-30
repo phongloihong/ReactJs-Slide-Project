@@ -30374,6 +30374,14 @@
 
 	var _reactRouter = __webpack_require__(184);
 
+	var _reactAddonsCssTransitionGroup = __webpack_require__(309);
+
+	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+	var _loader = __webpack_require__(323);
+
+	var _loader2 = _interopRequireDefault(_loader);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30382,15 +30390,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ReactCSSTransitionGroup = __webpack_require__(309);
+	// Import mycomponent
+
 
 	var Login = function (_React$Component) {
 	  _inherits(Login, _React$Component);
 
-	  function Login() {
+	  function Login(props) {
 	    _classCallCheck(this, Login);
 
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+	    _this.state = { loading: true };
+	    return _this;
 	  }
 
 	  _createClass(Login, [{
@@ -30422,14 +30434,16 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var loader = this.state.loading != true ? '' : _react2.default.createElement(_loader2.default, null);
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'signin-signup' },
+	        loader,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'row ' },
+	          { className: 'row' },
 	          _react2.default.createElement(
-	            ReactCSSTransitionGroup,
+	            _reactAddonsCssTransitionGroup2.default,
 	            {
 	              transitionName: 'overlayLogin',
 	              transitionAppear: true,
@@ -30490,6 +30504,16 @@
 	          )
 	        )
 	      );
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this3 = this;
+
+	      this.state.loading = false;
+	      setTimeout(function () {
+	        _this3.setState(_this3.state);
+	      }, 0);
 	    }
 	  }]);
 
@@ -33031,6 +33055,92 @@
 	};
 
 	module.exports = ReactTransitionEvents;
+
+/***/ },
+/* 322 */,
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ReactCSSTransitionGroup = __webpack_require__(309);
+
+	var Loader = function (_React$Component) {
+	  _inherits(Loader, _React$Component);
+
+	  function Loader() {
+	    _classCallCheck(this, Loader);
+
+	    return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+	  }
+
+	  _createClass(Loader, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'loading' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'loading-text' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'L'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'O'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'A'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'D'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'I'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'N'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'loading-text-words' },
+	            'G'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Loader;
+	}(_react2.default.Component);
+
+	module.exports = Loader;
 
 /***/ }
 /******/ ]);

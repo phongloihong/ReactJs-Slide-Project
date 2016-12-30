@@ -8,7 +8,7 @@ app.set('views', 'views');
 app.use(express.static('public'));
 app.use(cookieParser());
 
-app.listen(3000, () => {console.log('Server is up');});
+app.listen(process.env.PORT || 3000, () => {console.log('Server is up');});
 
 app.use(require('./Controller/middleWare.js'));
 app.get('/', (req, res)=>{ res.render('home'); });

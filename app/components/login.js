@@ -1,9 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+// Import mycomponent
+import Loader from '../components/etc/loader.js';
 class Login extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {loading: true};
+  }
   componentWillMount(){
     if(this.props.isAuth == true){
       this.props.router.push('/');
@@ -21,10 +27,11 @@ class Login extends React.Component{
     });
   }
   render(){
+    var loader = this.state.loading != true? '':<Loader/>;
     return(
-      <div id="signin-signup">
-
-        <div className = "row ">
+      <div id="signin-signup" >
+        {loader}
+        <div className = "row">
           <ReactCSSTransitionGroup
                 transitionName="overlayLogin"
                 transitionAppear={true}
@@ -57,6 +64,11 @@ class Login extends React.Component{
         </div>
       </div>
     );
+  }
+  componentDidMount(){
+    this.state.loading = false;
+    setTimeout(() => {
+    this.setState(this.state); }, 0);
   }
 }
 module.exports = connect(
