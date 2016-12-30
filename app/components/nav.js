@@ -2,17 +2,25 @@ import React from 'react';
 import {Link, IndexLink, hashHistory} from 'react-router';
 import {connect} from 'react-redux';
 import axios from 'axios';
+
 class Nav extends React.Component{
   componentWillMount(){
     var {dispatch} = this.props;
-    axios.post('/checkauth')
-      .then(function(response){
-        if(!response.data.userName){
-          hashHistory.push('/signin');
-        } else {
-          dispatch({type: 'LOGIN', userName: response.data.userName});
-        }
-      });
+    // axios.post('/checkauth')
+    //   .then(function(response){
+    //     if(!response.data.userName){
+    //       hashHistory.push('/signin');
+    //     } else {
+    //       dispatch({type: 'LOGIN', userName: response.data.userName});
+    //     }
+    //   });
+    $.post('/checkauth', data => {
+      if(!data.userName){
+        hashHistory.push('/signin');
+      } else {
+        dispatch({type: 'LOGIN', userName: data.userName});
+      }
+    });
   }
   signout(){
     $.get('/signout', data => {
