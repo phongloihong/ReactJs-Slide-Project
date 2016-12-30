@@ -1,1 +1,90 @@
-#signin-signup{height:100vh;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}
+#signin-signup {
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url('../images/backgr.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#signin-signup .overlay-login {
+  max-width: 350px;
+  padding: 90px 20px 30px 20px;
+  position: relative;
+  z-index: 1;
+}
+#signin-signup .overlay-login .head-login-logo {
+  text-align: center;
+  color: white;
+  font-size: 85px;
+  padding-bottom: 100px;
+}
+#signin-signup .overlay-login:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.4;
+}
+#signin-signup .overlay-login .my-button {
+  border-radius: 20px;
+  background-color: #ff3366;
+  padding: 14px;
+  margin: 30px 0;
+}
+#signin-signup .overlay-login .my-button:hover {
+  opacity: 0.9;
+}
+#signin-signup .overlay-login .my-input-transparent {
+  box-shadow: none;
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgba(228, 230, 232, 0.4);
+  background-color: transparent;
+  padding-left: 20px;
+}
+#signin-signup .overlay-login .user-input {
+  position: relative;
+}
+#signin-signup .overlay-login .user-input::before {
+  font-family: 'FontAwesome';
+  color: white;
+  position: absolute;
+  content: "\f007";
+  top: 6px;
+  font-size: 18px;
+}
+#signin-signup .overlay-login .password-input {
+  position: relative;
+}
+#signin-signup .overlay-login .password-input::before {
+  font-family: 'FontAwesome';
+  color: white;
+  position: absolute;
+  content: "\f023";
+  top: 6px;
+  font-size: 18px;
+}
+#signin-signup .overlay-login .sign-up-link {
+  text-align: center;
+}
+#signin-signup .overlay-login .sign-up-link span {
+  color: rgba(228, 230, 232, 0.5);
+}
+#signin-signup .overlay-login .sign-up-link span a {
+  color: white;
+}
