@@ -30402,15 +30402,16 @@
 	    }
 	  }, {
 	    key: 'signin',
-	    value: function signin() {
+	    value: function signin(event) {
 	      var _this2 = this;
 
+	      event.preventDefault();
 	      var _refs = this.refs,
 	          username = _refs.username,
 	          password = _refs.password;
 
 	      $.post('/signin', { username: username.value, password: password.value }, function (data) {
-	        if (data.userName) {
+	        if (data.userName !== "undefined" && data !== "undefined") {
 	          var dispatch = _this2.props.dispatch;
 
 	          dispatch({ type: 'LOGIN', userName: data.userName });
@@ -30446,7 +30447,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'form',
-	                null,
+	                { onSubmit: this.signin.bind(this) },
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'row' },
@@ -30465,7 +30466,7 @@
 	                    { className: 'medium-12 columns ' },
 	                    _react2.default.createElement(
 	                      'button',
-	                      { type: 'submit', className: ' button expanded my-button animated flipInY', onClick: this.signin.bind(this) },
+	                      { type: 'submit', className: ' button expanded my-button animated flipInY' },
 	                      'Sign In'
 	                    )
 	                  )

@@ -9,10 +9,11 @@ class Login extends React.Component{
       this.props.router.push('/');
     }
   }
-  signin(){
+  signin(event){
+    event.preventDefault()
     var {username, password} = this.refs;
     $.post('/signin', {username: username.value, password: password.value}, (data) => {
-      if(data.userName){
+      if(data.userName !== "undefined" && data !== "undefined"){
         var {dispatch} = this.props;
         dispatch({type: 'LOGIN', userName: data.userName});
         this.props.router.push('/');
@@ -35,7 +36,7 @@ class Login extends React.Component{
             <div className="head-login-logo" key="a">
               <i className="fa fa-check" aria-hidden="true"></i>
             </div>
-            <form>
+            <form onSubmit={this.signin.bind(this)}>
                 <div className="row">
                   <div className="medium-12 columns user-input animated zoomIn">
                       <input className="my-input-transparent" type="text" ref="username" placeholder="Username"/>
@@ -44,7 +45,7 @@ class Login extends React.Component{
                       <input className="my-input-transparent" type="password" ref="password" placeholder="Password"/>
                   </div>
                   <div className="medium-12 columns ">
-                    <button type="submit" className=" button expanded my-button animated flipInY" onClick={this.signin.bind(this)}>Sign In</button>
+                    <button type="submit" className=" button expanded my-button animated flipInY" >Sign In</button>
                   </div>
                 </div>
             </form>

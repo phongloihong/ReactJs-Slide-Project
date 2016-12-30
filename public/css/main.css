@@ -50,6 +50,7 @@
   background-color: #ff3366;
   padding: 14px;
   margin: 30px 0;
+  outline: none;
   -webkit-animation-delay: .8s;
           animation-delay: .8s;
 }
