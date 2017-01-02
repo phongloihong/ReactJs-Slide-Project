@@ -15,3 +15,5 @@ app.get('/', (req, res)=>{ res.render('home'); });
 app.post('/signin', bodyParser, require('./Controller/login.js'));
 app.post('/checkauth', bodyParser, require('./Controller/checkAuth.js'));
 app.get('/signout', require('./Controller/signOut.js'));
+// signup
+app.get('/signup', require('./Controller/signUp.js'));
