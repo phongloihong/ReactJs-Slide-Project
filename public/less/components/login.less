@@ -11,14 +11,14 @@
   // content login form
   .overlay-login{
     max-width: 350px;
-    padding: 90px 20px 30px 20px;
+    padding: 60px 20px 30px 20px;
     position: relative;
     z-index: 1;
     .head-login-logo{
       text-align: center;
       color: white;
       font-size: 85px;
-      padding-bottom: 100px;
+      padding-bottom: 50px;
       opacity: 0;
       animation: loginLogo .5s forwards;
       animation-delay: .4s;
@@ -52,12 +52,12 @@
       border: none;
       border-bottom: 1px solid rgba(228, 230, 232, 0.4);
       background-color: transparent;
-      padding-left: 20px;
+      padding-left: 25px;
       &::-webkit-input-placeholder{
         color: rgba(228, 230, 232, 0.5);
       }
     }
-    .user-input, .password-input{
+    .user-input, .password-input, .fullname-input{
         animation-delay: .6s;
     }
     .user-input{
@@ -66,7 +66,7 @@
         font-family: 'FontAwesome';
         color:white;
         position: absolute;
-        content: "\f007";
+        content: "\f0e0";
         top: 6px;
         font-size: 18px;
       }
@@ -78,6 +78,17 @@
         color:white;
         position: absolute;
         content: "\f023";
+        top: 6px;
+        font-size: 18px;
+      }
+    }
+    .fullname-input{
+      position: relative;
+      &::before{
+        font-family: 'FontAwesome';
+        color:white;
+        position: absolute;
+        content: "\f2be";
         top: 6px;
         font-size: 18px;
       }

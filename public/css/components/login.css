@@ -18,7 +18,10 @@
   text-align: center;
   color: white;
   font-size: 85px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  opacity: 0;
+  animation: loginLogo .5s forwards;
+  animation-delay: .4s;
 }
 #signin-signup .overlay-login:after {
   position: absolute;
@@ -29,13 +32,15 @@
   width: 100%;
   height: 100%;
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 #signin-signup .overlay-login .my-button {
   border-radius: 20px;
   background-color: #ff3366;
   padding: 14px;
   margin: 30px 0;
+  outline: none;
+  animation-delay: .8s;
 }
 #signin-signup .overlay-login .my-button:hover {
   opacity: 0.9;
@@ -47,6 +52,13 @@
   border-bottom: 1px solid rgba(228, 230, 232, 0.4);
   background-color: transparent;
   padding-left: 20px;
+}
+#signin-signup .overlay-login .my-input-transparent::-webkit-input-placeholder {
+  color: rgba(228, 230, 232, 0.5);
+}
+#signin-signup .overlay-login .user-input,
+#signin-signup .overlay-login .password-input {
+  animation-delay: .6s;
 }
 #signin-signup .overlay-login .user-input {
   position: relative;
@@ -79,27 +91,34 @@
 #signin-signup .overlay-login .sign-up-link span a {
   color: white;
 }
-.example-enter {
+.overlayLogin-enter {
   opacity: 0.01;
 }
-.example-enter.example-enter-active {
+.overlayLogin-enter.overlayLogin-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
-.example-leave {
+.overlayLogin-leave {
   opacity: 1;
 }
-.example-leave.example-leave-active {
+.overlayLogin-leave.overlayLogin-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
-.example-appear {
+.overlayLogin-appear {
   opacity: 0.01;
+  transform: translateY(100px);
 }
-.example-appear.example-appear-active {
+.overlayLogin-appear.overlayLogin-appear-active {
   opacity: 1;
-  transition: opacity 0.5s ease-in;
+  transform: translateY(0px);
+  transition: all 0.4s ease-in;
 }
-.text {
-  position: absolute;
+@keyframes loginLogo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -10,7 +10,7 @@ import axios from 'axios';
 import Main from './components/main.js';
 import Login from './components/login.js';
 import Dashboard from './components/dashboard.js';
-
+import Signup from './components/signUp.js';
 // import action
 // import foundation css
 require('style!css!foundation-sites/dist/css/foundation.min.css');
@@ -65,8 +65,9 @@ store.subscribe(() => {
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={Main}>
+      <Route path="/" component={Main} >
         <Route path="signin" component={Login}/>
+        <Route path="signup" component={Signup}/>
         <Route path="dashboard" component={Dashboard}/>
       </Route>
     </Router>

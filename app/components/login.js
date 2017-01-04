@@ -42,6 +42,7 @@ class Login extends React.Component{
           <div className="medium-12 medium-centered columns overlay-login">
             <div className="head-login-logo" key="a">
               <i className="fa fa-check" aria-hidden="true"></i>
+              <h2>Sign in</h2>
             </div>
             <form onSubmit={this.signin.bind(this)}>
                 <div className="row">
@@ -57,7 +58,7 @@ class Login extends React.Component{
                 </div>
             </form>
             <div className="sign-up-link">
-                <span>Don't have an account? <Link to="/signin">Sign up</Link></span>
+                <span>Don't have an account? <Link to="/signup">Sign up</Link></span>
             </div>
           </div>
         </ReactCSSTransitionGroup>
